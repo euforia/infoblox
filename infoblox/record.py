@@ -126,6 +126,8 @@ class Record(mapping.Mapping):
                         value.append(item._save_as())
                     elif hasattr(item, '_ref') and getattr(item, '_ref'):
                         value.append(getattr(item, '_ref'))
+                    elif key == 'aliases':
+                        value.append(item)
                     else:
                         LOGGER.warning('Cant assign %r', item)
                 values[key] = value
